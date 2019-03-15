@@ -11,6 +11,7 @@ class TestData:
 
     @classmethod
     def init_from_json(cls, db):
+        cls.repository().clear()
         [TestData(key, db[key]) for key in db]
 
     def __init__(self, name, metadata: dict):
@@ -33,9 +34,18 @@ class TestData:
         return getattr(self, "__sex") if hasattr(self, "__sex") else None
 
     def caption(self):
-        return getattr(self, "__caption") if hasattr(self, "__caption") else ""
+        return getattr(self, "__caption") if hasattr(self, "__caption") else None
 
     def solution(self):
         species: Species = self.species()
-        sex = species.instanceName(self.sex())
-        return "{} {} {}".format(species.name(), sex, self.caption())
+        solution_text = []
+        if species is not None:
+            solution_text.append("faj:{}".format(species.name()))
+        if self.sex() is not None:
+            solution_text.append("ivar:{}".format(species.instanceName(self.sex())))
+        if self.caption() is not None:
+            solution_text.append("megoldás:{}".format(self.caption()))
+        if species.status() is not None:
+            solution_text.append("státusz:{}".format(species.status()))
+        solution_text.append("kép sorszám:{}".format(self.key()))
+        return "\n".join([s for s in solution_text if s is not None])

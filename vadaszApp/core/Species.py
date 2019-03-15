@@ -14,21 +14,23 @@ class Species:
         return cls.repository()[name]
 
     @classmethod
-    def init_from_JSON(cls,db):
-        [Species(key,db[key]) for key in db]
+    def init_from_JSON(cls, db):
+        cls.repository().clear()
+        [Species(key, db[key]) for key in db]
 
     def __init__(self, name, data):
         self.__name = name
         self.__male_name = util.get_from_dict(data, "male_name", "hím")
         self.__female_name = util.get_from_dict(data, "female_name", "nőstény")
         self.__young_name = util.get_from_dict(data, "young_name", "fiatal")
+        self.__status = util.get_from_dict(data, "status", None)
         self.repository()[self.name()] = self
 
     def instanceName(self, sex=None):
         if sex is None:
-            return ""
-        attrname = "__" + sex + "_name"
-        return getattr(self, attrname) if hasattr(self, attrname) else ""
+            return None
+        attrname = '_%s__%s_name' % (self.__class__.__name__, sex)
+        return getattr(self, attrname) if hasattr(self, attrname) else None
 
     def name(self):
         return self.__name
@@ -41,3 +43,6 @@ class Species:
 
     def youngName(self):
         return self.__young_name
+
+    def status(self):
+        return self.__status
