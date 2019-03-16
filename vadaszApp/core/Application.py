@@ -68,6 +68,6 @@ class Application:
         self.__shuffle()
 
     def prev(self):
-        if self.current_index > 0:
+        if self.current_index > 1:
             self.current_index = self.current_index - 1
         self.__update_image()
