@@ -29,7 +29,7 @@ class Application:
             testdata = json.load(f)
         with open(os.path.join(path, 'species.json'), encoding="utf8") as f:
             species = json.load(f)
-        Species.init_from_JSON(species)
+        Species.init_from_json(species)
         TestData.init_from_json(testdata)
         self.current_test = None
         self.keys = [k for k, v in TestData.repository().items()]
@@ -44,16 +44,16 @@ class Application:
             self.current_index = 0
             self.count = 0
 
-        self.__update_image()
+        self.__update_test()
 
-    def __update_image(self):
+    def __update_test(self):
         self.current_test = TestData.repository()[self.keys[self.current_index - 1]]
         self.observer.notify_changed(self)
 
     def next(self):
         if self.current_index <= self.count:
             self.current_index = self.current_index + 1
-        self.__update_image()
+        self.__update_test()
 
     def get_solution(self):
         return self.current_test.solution()
@@ -70,4 +70,4 @@ class Application:
     def prev(self):
         if self.current_index > 1:
             self.current_index = self.current_index - 1
-        self.__update_image()
+        self.__update_test()

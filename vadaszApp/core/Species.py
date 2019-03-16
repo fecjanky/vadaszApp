@@ -13,7 +13,7 @@ class Species:
         return cls.repository()[name]
 
     @classmethod
-    def init_from_JSON(cls, db):
+    def init_from_json(cls, db):
         cls.repository().clear()
         [Species(key.strip(), db[key]) for key in db]
 

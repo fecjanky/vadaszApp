@@ -13,7 +13,7 @@ def test_TestData():
 
 
 def test_TestData_from_JSON():
-    Species.init_from_JSON({"Nagy lilik" :{},"Vetési lúd" : {}})
+    Species.init_from_json({"Nagy lilik": {}, "Vetési lúd": {}})
     data = {
         "1  ": {"species": "Nagy lilik"},
         "2  ": {"species": "Nagy lilik"},

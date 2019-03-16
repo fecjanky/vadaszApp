@@ -29,9 +29,6 @@ class Application(Observer):
         if path is not None:
             self.application.load(path)
 
-    def shuffle(self):
-        self.application.shuffle()
-
     def __create_layout(self):
         self.canvas.widget().grid(row=0, column=0, sticky=(tk.N + tk.S + tk.E + tk.W),
                                   rowspan=len(self.controls) - 1 if len(self.controls) > 1 else 1)
@@ -57,7 +54,7 @@ class Application(Observer):
 
         self.controls = [self.status_label,
                          Button(self.master, text="Betöltés", command=self.load),
-                         Button(self.master, text="Keverés", command=self.shuffle),
+                         Button(self.master, text="Keverés", command=self.application.shuffle),
                          Button(self.master, text="Megoldás", command=self.show_solution),
                          Button(self.master, text="Előző", command=self.prev),
                          Button(self.master, text="Következő", command=self.next)]
