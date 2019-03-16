@@ -1,3 +1,4 @@
 from vadaszApp.UI.ui import App
 
-App().run()
+if __name__ == "__main__":
+    App().run()

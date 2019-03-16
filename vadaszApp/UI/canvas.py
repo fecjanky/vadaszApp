@@ -1,7 +1,5 @@
 import tkinter
-from tkinter import BOTH
-
-from vadaszApp.UI.util import get_default
+from vadaszApp.core.util import get_from_dict
 
 
 class Drawable:
@@ -14,7 +12,7 @@ class Canvas:
         self.width = 640
         self.height = 480
         self.master = master
-        self.border = get_default(kwargs, "border", 40)
+        self.border = get_from_dict(kwargs, "border", 40)
 
         if self.border < 0:
             raise ValueError("border must be greater or equal to 0")

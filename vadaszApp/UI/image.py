@@ -4,14 +4,14 @@ import cv2
 from PIL import ImageTk
 
 from vadaszApp.UI.canvas import Drawable, Canvas
-from vadaszApp.UI.util import get_default
+from vadaszApp.core.util import get_from_dict
 
 
 class Image(Drawable):
     def __init__(self, path, canvas: Canvas, **kwargs):
         self.path = path
         canvas.attach(self)
-        self.keep_aspect_ratio = get_default(kwargs, "keep_aspect_ratio", True)
+        self.keep_aspect_ratio = get_from_dict(kwargs, "keep_aspect_ratio", True)
         self.original_image = cv2.imread(path)
         self.original_height, self.original_width, z = self.original_image.shape
         self.portrait = self.original_width < self.original_height
