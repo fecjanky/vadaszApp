@@ -3,7 +3,7 @@ import os
 from random import shuffle
 
 from vadaszApp.core.Species import Species
-from vadaszApp.core.data import TestData
+from vadaszApp.core.TestData import TestData
 
 
 class Observer:

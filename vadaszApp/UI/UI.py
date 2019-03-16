@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import Tk, mainloop, Button, filedialog
 
-from vadaszApp.UI.canvas import Canvas
-from vadaszApp.UI.image import Image
-from vadaszApp.core.application import Application, Observer
+from vadaszApp.UI.Canvas import Canvas
+from vadaszApp.UI.Image import Image
+from vadaszApp.core.Application import Application, Observer
 
 
 class UI(Observer):

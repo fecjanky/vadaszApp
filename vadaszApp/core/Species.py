@@ -1,4 +1,4 @@
-from . import util
+from . import Util
 
 
 class Species:
@@ -19,10 +19,10 @@ class Species:
 
     def __init__(self, name, data):
         self.__name = name
-        self.__male_name = util.get_from_dict(data, "male_name", "hím")
-        self.__female_name = util.get_from_dict(data, "female_name", "nőstény")
-        self.__young_name = util.get_from_dict(data, "young_name", "fiatal")
-        self.__status = util.get_from_dict(data, "status", None)
+        self.__male_name = Util.get_from_dict(data, "male_name", "hím")
+        self.__female_name = Util.get_from_dict(data, "female_name", "nőstény")
+        self.__young_name = Util.get_from_dict(data, "young_name", "fiatal")
+        self.__status = Util.get_from_dict(data, "status", None)
         self.repository()[self.name()] = self
 
     def instanceName(self, sex=None):

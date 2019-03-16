@@ -1,5 +1,6 @@
 import tkinter
-from vadaszApp.core.util import get_from_dict
+
+from vadaszApp.core.Util import get_from_dict
 
 
 class Drawable:

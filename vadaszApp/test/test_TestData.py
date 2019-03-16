@@ -1,5 +1,5 @@
 from vadaszApp.core.Species import Species
-from vadaszApp.core.data import TestData
+from vadaszApp.core.TestData import TestData
 
 
 def test_TestData():

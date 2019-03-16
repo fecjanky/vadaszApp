@@ -3,8 +3,8 @@ import math
 import cv2
 from PIL import ImageTk
 
-from vadaszApp.UI.canvas import Drawable, Canvas
-from vadaszApp.core.util import get_from_dict
+from vadaszApp.UI.Canvas import Drawable, Canvas
+from vadaszApp.core.Util import get_from_dict
 
 
 class Image(Drawable):
