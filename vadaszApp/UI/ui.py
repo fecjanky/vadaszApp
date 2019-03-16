@@ -20,6 +20,10 @@ class App(Observer):
         self.solution_text.set("")
         self.application.next()
 
+    def prev(self):
+        self.solution_text.set("")
+        self.application.prev()
+
     def load(self):
         path = filedialog.askdirectory()
         if path is not None:
@@ -55,6 +59,7 @@ class App(Observer):
                          Button(self.master, text="Betöltés", command=self.load),
                          Button(self.master, text="Keverés", command=self.shuffle),
                          Button(self.master, text="Megoldás", command=self.show_solution),
+                         Button(self.master, text="Előző", command=self.prev),
                          Button(self.master, text="Következő", command=self.next)]
 
         for l in self.labels:

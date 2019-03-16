@@ -43,16 +43,17 @@ class Application:
         else:
             self.current_index = 0
             self.count = 0
+
+        self.__update_image()
+
+    def __update_image(self):
         self.current_test = TestData.repository()[self.keys[self.current_index - 1]]
         self.observer.notify_changed(self)
 
     def next(self):
-        if self.current_index >= self.count:
-            self.shuffle()
-        else:
+        if self.current_index <= self.count:
             self.current_index = self.current_index + 1
-            self.current_test = TestData.repository()[self.keys[self.current_index - 1]]
-            self.observer.notify_changed(self)
+        self.__update_image()
 
     def get_solution(self):
         return self.current_test.solution()
@@ -65,3 +66,8 @@ class Application:
 
     def shuffle(self):
         self.__shuffle()
+
+    def prev(self):
+        if self.current_index > 0:
+            self.current_index = self.current_index - 1
+        self.__update_image()
