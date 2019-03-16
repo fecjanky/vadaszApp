@@ -1,5 +1,4 @@
 from vadaszApp.core.Species import Species
-from vadaszApp.core.util import add_to_class_repository
 
 
 class TestData:
@@ -12,7 +11,7 @@ class TestData:
     @classmethod
     def init_from_json(cls, db):
         cls.repository().clear()
-        [TestData(key, db[key]) for key in db]
+        [TestData(key.strip(), db[key]) for key in db]
 
     def __init__(self, name, metadata: dict):
         self.__name = name

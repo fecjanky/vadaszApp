@@ -2,6 +2,9 @@
 "Nagy lilik" : {"status":"vadászható"},
 "Vetési lúd" : {"status":"vadászható"},
 "Nyári lúd" : {"status":"vadászható"},
+  "Nílusi lúd": {
+    "status": "vadászható"
+  },
 "Kanadai lúd" : {"status":"vadászható"},
 "Tőkés réce" : { "male_name" : "gácser", "female_name":"tojó", "young_name" :"fiatal" ,"status":"vadászható"},
 "Csörgő réce" : { "male_name" : "gácser", "female_name":"tojó", "young_name" :"fiatal" ,"status":"védett"},

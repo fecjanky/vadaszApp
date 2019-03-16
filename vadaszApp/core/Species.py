@@ -1,4 +1,3 @@
-from vadaszApp.core.util import add_to_class_repository
 from . import util
 
 
@@ -16,7 +15,7 @@ class Species:
     @classmethod
     def init_from_JSON(cls, db):
         cls.repository().clear()
-        [Species(key, db[key]) for key in db]
+        [Species(key.strip(), db[key]) for key in db]
 
     def __init__(self, name, data):
         self.__name = name
