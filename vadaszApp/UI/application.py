@@ -14,7 +14,7 @@ class Observer:
 class Application:
     current_test: TestData
 
-    def __init__(self, obsever: Observer, image_extension=".png"):
+    def __init__(self, obsever: Observer, image_extension=".jpg"):
         self.observer = obsever
         self.current_test = None
         self.path = "."
