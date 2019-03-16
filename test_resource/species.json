@@ -1,0 +1,7 @@
+{
+"Nagy lilik" : {"status":"vadászható"},
+"Fácán" : { "male_name" : "kakas", "female_name":"tyúk", "young_name" :"csibe" ,"status":"vadászható"},
+"Kis lilik" : {"status":"fokozottan védett"},
+"Szürke gém" : {"status":"védett"},
+"Gímszarvas" : {"male_name":"bika", "female_name":"tehén", "young_name": "borjú","status":"vadászható"}
+}

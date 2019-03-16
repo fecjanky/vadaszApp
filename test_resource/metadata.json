@@ -1,0 +1,7 @@
+{
+ "1  " : { "species" : "Nagy lilik" },
+ "23 " : { "species" : "Fácán" , "sex" : "male" },
+ "45 " : { "species" : "Kis lilik" },
+ "67 " : { "species" : "Szürke gém" },
+ "137" : { "species" : "Gímszarvas" , "sex":"young" , "caption":"Gímborjú" }
+}
