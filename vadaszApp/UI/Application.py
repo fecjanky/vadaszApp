@@ -3,10 +3,10 @@ from tkinter import Tk, mainloop, Button, filedialog
 
 from vadaszApp.UI.Canvas import Canvas
 from vadaszApp.UI.Image import Image
-from vadaszApp.core.Application import Application, Observer
+from vadaszApp.core.Application import Application as CoreApplication, Observer
 
 
-class UI(Observer):
+class Application(Observer):
 
     def notify_changed(self, application):
         Image(self.application.get_image_path(), self.canvas)
@@ -48,7 +48,7 @@ class UI(Observer):
         self.master.columnconfigure(0, weight=1)
         self.master.rowconfigure(0, weight=1)
         self.canvas = Canvas(self.master, border=50)
-        self.application = Application(self)
+        self.application = CoreApplication(self)
         self.status_text = tk.StringVar()
         self.solution_text = tk.StringVar()
         self.status_label = tk.Label(self.master, textvariable=self.status_text)

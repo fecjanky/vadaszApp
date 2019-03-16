@@ -1,4 +1,9 @@
-from vadaszApp.UI.UI import UI
+from vadaszApp.UI.Application import Application
+
+
+def main():
+    Application().run()
+
 
 if __name__ == "__main__":
-    UI().run()
+    main()
