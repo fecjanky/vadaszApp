@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import Tk, mainloop, Button, filedialog
 
-from vadaszApp.UI.application import Application, Observer
 from vadaszApp.UI.canvas import Canvas
 from vadaszApp.UI.image import Image
+from vadaszApp.core.application import Application, Observer
 
 
-class App(Observer):
+class UI(Observer):
 
     def notify_changed(self, application):
         Image(self.application.get_image_path(), self.canvas)
