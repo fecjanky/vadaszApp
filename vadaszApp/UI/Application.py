@@ -39,9 +39,14 @@ class Application(Observer):
             control.grid(row=row, column=1, padx=20, pady=20)
             row = row + 1
 
+    def __key_pressed(self, event):
+        if event.keysym and event.keysym in self.key_mapping:
+            self.key_mapping[event.keysym]()
+
     def __init__(self):
         self.master = Tk()
         self.master.title("vadászApp")
+        self.master.bind("<Key>", self.__key_pressed)
         self.master.columnconfigure(0, weight=1)
         self.master.rowconfigure(0, weight=1)
         self.canvas = Canvas(self.master, border=50)
@@ -56,13 +61,15 @@ class Application(Observer):
                          Button(self.master, text="Betöltés", command=self.load),
                          Button(self.master, text="Keverés", command=self.application.shuffle),
                          Button(self.master, text="Megoldás", command=self.show_solution),
-                         Button(self.master, text="Előző", command=self.prev),
-                         Button(self.master, text="Következő", command=self.next)]
+                         Button(self.master, text="Következő", command=self.next),
+                         Button(self.master, text="Előző", command=self.prev)]
 
         for l in self.labels:
             l.config(font="Courier 18 bold")
 
         self.__create_layout()
+
+        self.key_mapping = {"Return": self.show_solution, "Left": self.prev, "Right": self.next}
 
     def run(self):
         mainloop()
