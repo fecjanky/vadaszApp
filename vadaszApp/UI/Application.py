@@ -17,17 +17,24 @@ class Application(Observer):
         self.solution_text.set(self.application.get_solution())
 
     def next(self):
-        self.solution_text.set("")
+        self.clear_solution_text()
         self.application.next()
 
     def prev(self):
-        self.solution_text.set("")
+        self.clear_solution_text()
         self.application.prev()
 
     def load(self):
         path = filedialog.askdirectory()
         if path is not None:
             self.application.load(path)
+
+    def shuffle(self):
+        self.clear_solution_text()
+        self.application.shuffle()
+
+    def clear_solution_text(self):
+        self.solution_text.set("")
 
     def __create_layout(self):
         self.canvas.widget().grid(row=0, column=0, sticky=(tk.N + tk.S + tk.E + tk.W),
@@ -59,7 +66,7 @@ class Application(Observer):
 
         self.controls = [self.status_label,
                          Button(self.master, text="Betöltés", command=self.load),
-                         Button(self.master, text="Keverés", command=self.application.shuffle),
+                         Button(self.master, text="Keverés", command=self.shuffle),
                          Button(self.master, text="Megoldás", command=self.show_solution),
                          Button(self.master, text="Következő", command=self.next),
                          Button(self.master, text="Előző", command=self.prev)]
